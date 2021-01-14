@@ -8,6 +8,10 @@ khan_vote = 0
 correy_vote = 0
 li_vote = 0
 otooley_vote = 0
+khan = "Khan"
+correy = "Correy"
+li = "Li"
+otooley = "O'Tooley"
 
 election_file = os.path.join('resources', 'election_data.csv')
 
@@ -21,13 +25,13 @@ with open(election_file) as csvfile:
         candidate_list.append(row[2])
 
 for x in candidate_list:
-    if x == "Khan":
+    if x == khan:
         khan_vote += 1
-    elif x == "correy":
+    elif x == correy:
         correy_vote += 1
-    elif x == "li":
+    elif x == li:
         li_vote += 1
-    elif x == "otooley":
+    elif x == otooley:
         otooley_vote += 1
 
 def popular_candidate(candidate_list): 
@@ -74,3 +78,32 @@ file.write("-----------------------" + '\n')
 file.write("Winner: " + popular_candidate(candidate_list) + '\n') 
 file.write("-----------------------" + '\n')
 
+#Your task is to create a Python script that analyzes the votes and calculates 
+# each of the following:
+
+#  * The total number of votes cast(x)
+
+# * A complete list of candidates who received votes(x) if stament
+
+#  * The percentage of votes each candidate won(x) 
+
+#  * The total number of votes each candidate won(x) if statement
+
+#  * The winner of the election based on popular vote.() if statemnt
+
+
+#* As an example, your analysis should look similar to the one below:
+#
+# ```text
+#  Election Results
+#  -------------------------
+#  Total Votes: 3521001
+#  -------------------------
+#  Khan: 63.000% (2218231)
+#  Correy: 20.000% (704200)
+#  Li: 14.000% (492940)
+#  O'Tooley: 3.000% (105630)
+#  -------------------------
+#  Winner: Khan
+#  -------------------------
+#  ```
