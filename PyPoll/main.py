@@ -20,7 +20,7 @@ with open(election_file) as csvfile:
         county_list.append(row[1])
         candidate_list.append(row[2])
 
-for x in candidate_list:
+for x in candidate_list: # to calculate total number of votes, I needed to append and count the votes.
     if x == "Khan":
         khan_vote += 1
     elif x == "Correy":
@@ -30,12 +30,12 @@ for x in candidate_list:
     elif x == "O'Tooley":
         otooley_vote += 1
 
-def popular_candidate(candidate_list): 
+def popular_candidate(candidate_list):  # used key to return the candidate with most votes.
     return max(set(candidate_list), key = candidate_list.count)
 
-total_votes_cast = len(voter_id_list) # total votes cast
+total_votes_cast = len(voter_id_list)
 
-khan_value = round(int(khan_vote)/int(total_votes_cast), 2)
+khan_value = round(int(khan_vote)/int(total_votes_cast), 2) # calculated average of % of votes as well as total vote count for each candidate. 
 khan_percent = "{:.0%}".format(khan_value)
 
 correy_value = round(int(correy_vote)/int(total_votes_cast), 2)
@@ -73,33 +73,3 @@ file.write(f"O'Tooley: {otooley_percent} ({otooley_vote})" + '\n')
 file.write("-----------------------" + '\n')
 file.write("Winner: " + popular_candidate(candidate_list) + '\n') 
 file.write("-----------------------" + '\n')
-
-#Your task is to create a Python script that analyzes the votes and calculates 
-# each of the following:
-
-#  * The total number of votes cast(x)
-
-# * A complete list of candidates who received votes(x) if stament
-
-#  * The percentage of votes each candidate won(x) 
-
-#  * The total number of votes each candidate won(x) if statement
-
-#  * The winner of the election based on popular vote.() if statemnt
-
-
-#* As an example, your analysis should look similar to the one below:
-#
-# ```text
-#  Election Results
-#  -------------------------
-#  Total Votes: 3521001
-#  -------------------------
-#  Khan: 63.000% (2218231)
-#  Correy: 20.000% (704200)
-#  Li: 14.000% (492940)
-#  O'Tooley: 3.000% (105630)
-#  -------------------------
-#  Winner: Khan
-#  -------------------------
-#  ```
