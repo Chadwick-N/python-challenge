@@ -8,10 +8,6 @@ khan_vote = 0
 correy_vote = 0
 li_vote = 0
 otooley_vote = 0
-khan = "Khan"
-correy = "Correy"
-li = "Li"
-otooley = "O'Tooley"
 
 election_file = os.path.join('resources', 'election_data.csv')
 
@@ -25,13 +21,13 @@ with open(election_file) as csvfile:
         candidate_list.append(row[2])
 
 for x in candidate_list:
-    if x == khan:
+    if x == "Khan":
         khan_vote += 1
-    elif x == correy:
+    elif x == "Correy":
         correy_vote += 1
-    elif x == li:
+    elif x == "Li":
         li_vote += 1
-    elif x == otooley:
+    elif x == "O'Tooley":
         otooley_vote += 1
 
 def popular_candidate(candidate_list): 
@@ -48,17 +44,17 @@ correy_percent = "{:.0%}".format(correy_value)
 li_value = round(int(li_vote)/int(total_votes_cast), 2)
 li_percent = "{:.0%}".format(li_value)
 
-otooley_value = round(int(khan_vote)/int(total_votes_cast), 2)
+otooley_value = round(int(otooley_vote)/int(total_votes_cast), 2)
 otooley_percent = "{:.0%}".format(otooley_value)
 
 print("Election Results")
 print("-----------------------")
 print(f"Total Votes: {total_votes_cast}")
 print("-----------------------")
-print(f"Khan: {khan_percent} {khan_vote}")
-print(f"Li: {li_percent} {li_vote}")
-print(f"Correy: {correy_percent} {correy_vote}")
-print(f"O'Tooley: {otooley_percent} {otooley_vote}")
+print(f"Khan: {khan_percent} ({khan_vote})")
+print(f"Li: {li_percent} ({li_vote})")
+print(f"Correy: {correy_percent} ({correy_vote})")
+print(f"O'Tooley: {otooley_percent} ({otooley_vote})")
 print("-----------------------")
 print("Winner: " + popular_candidate(candidate_list)) 
 print("-----------------------")
@@ -70,10 +66,10 @@ file.write("Election Results" + '\n')
 file.write("-----------------------" + '\n')
 file.write(f"Total Votes: {total_votes_cast}" + '\n')
 file.write("-----------------------" + '\n')
-file.write(f"Khan: {khan_percent} {khan_vote}" + '\n')
-file.write(f"Li: {li_percent} {li_vote}" + '\n')
-file.write(f"Correy: {correy_percent} {correy_vote}" + '\n')
-file.write(f"O'Tooley: {otooley_percent} {otooley_vote}" + '\n')
+file.write(f"Khan: {khan_percent} ({khan_vote})" + '\n')
+file.write(f"Li: {li_percent} ({li_vote})" + '\n')
+file.write(f"Correy: {correy_percent} ({correy_vote})" + '\n')
+file.write(f"O'Tooley: {otooley_percent} ({otooley_vote})" + '\n')
 file.write("-----------------------" + '\n')
 file.write("Winner: " + popular_candidate(candidate_list) + '\n') 
 file.write("-----------------------" + '\n')
